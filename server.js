@@ -11,7 +11,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Health check route (for Render)
+app.get("/healthz", (req, res) => {
+  res.status(200).send("OK");
+});
+
 connectDB(process.env.MONGO_URI);
+
 
 app.use("/api/auth", authRoutes);
 app.use("/api/products", productRoutes);
