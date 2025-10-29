@@ -4,6 +4,7 @@ import jwt from "jsonwebtoken";
 import User from "../models/User.js";
 import { verifyToken } from "../middleware/auth.js"; 
 
+
 const router = express.Router();
 
 // Admin login
@@ -85,6 +86,7 @@ router.put("/update-profile", verifyToken, async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 });
+
 
 
 export default router;
